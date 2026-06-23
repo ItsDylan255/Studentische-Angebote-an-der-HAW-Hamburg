@@ -1,0 +1,45 @@
+% ============================================================
+%  VORLAGE – Neue Initiative eintragen
+%  Kopiere diese Datei und benenne sie um, z. B.:
+%  cp _VORLAGE.tex meine_initiative.tex
+%
+%  Dann in main.tex eintragen:
+%  \input{initiativen/meine_initiative}
+% ============================================================
+
+\begin{initiativkarte}{Name der Initiative}   % <── Initiativname hier
+
+  % Bild (optional) – Datei in bilder/ ablegen
+  \IfFileExists{bilder/meine_initiative.jpg}{%
+    \begin{center}
+      \includegraphics[width=\linewidth, height=5cm, keepaspectratio]{bilder/meine_initiative.jpg}
+    \end{center}
+    \vspace{0.4cm}
+  }{}
+
+  % Kurzbeschreibung
+  \textit{\textcolor{hawgray}{Kurze Beschreibung in einem oder zwei Sätzen, die das Wesentliche der Initiative auf den Punkt bringt.}}
+
+  \vspace{0.5cm}
+  \hawrule
+
+  % Ausführliche Beschreibung
+  \textbf{\textcolor{hawblue}{Was machen wir?}}\\[0.3cm]
+  Hier kommt die ausführlichere Beschreibung. Was sind die Ziele? Was macht ihr konkret? Welche Projekte habt ihr? Warum lohnt es sich beizutreten?
+
+  \vspace{0.5cm}
+
+  % Schlagwörter / Tags
+  \tag{Schlagwort 1} \tag{Schlagwort 2} \tag{Schlagwort 3}
+
+  \vspace{0.6cm}
+  \hawrule
+
+  % Info-Zeilen
+  \infozeile{\faUsers}{Zielgruppe: Alle Studierenden, besonders Informatik, Ingenieurwesen}
+  \infozeile{\faGraduationCap}{Semester: Ab 1. Semester}
+  \infozeile{\faCalendarAlt}{Treffen: Jeden Dienstag, 18:00 Uhr, Raum XXX}
+  \infozeile{\faEnvelope}{Kontakt: initiative@haw-hamburg.de}
+  \infozeile{\faGlobe}{Website: \href{https://example.com}{example.com}}
+
+\end{initiativkarte}
