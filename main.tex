@@ -1,0 +1,176 @@
+% ============================================================
+%  HAW Hamburg – Studierendeninitiativen Übersicht
+%  main.tex  –  Dieses Dokument zusammenführen aller Initiativen
+%
+%  Neue Initiative hinzufügen:
+%    1. Datei in initiativen/ anlegen (Vorlage kopieren)
+%    2. \input{initiativen/dateiname} unten eintragen
+% ============================================================
+
+\documentclass[12pt, a4paper]{article}
+
+% Design-Paket laden (aus config/)
+\usepackage{config/design}
+
+% ── Dokument-Metadaten ───────────────────────────────────────
+\hypersetup{
+  pdftitle={HAW Hamburg – Studierendeninitiativen},
+  pdfauthor={HAW Hamburg Fachschaft},
+  pdfsubject={Übersicht aller Studierendeninitiativen}
+}
+
+% ============================================================
+\begin{document}
+
+% ── DECKBLATT ────────────────────────────────────────────────
+\begin{titlepage}
+  \thispagestyle{empty}
+
+  % Hintergrund-Balken oben
+  \begin{tikzpicture}[remember picture, overlay]
+    \fill[hawblue] (current page.north west)
+      rectangle ([yshift=-7cm] current page.north east);
+    \fill[hawlightblue] ([yshift=-7cm] current page.north west)
+      rectangle ([yshift=-7.4cm] current page.north east);
+  \end{tikzpicture}
+
+  \vspace*{1.2cm}
+
+  % HAW Logo (Datei bilder/haw_logo.png einfügen)
+  \begin{center}
+    \ifx\@empty\@empty
+      % Placeholder falls kein Logo vorhanden
+      \textcolor{white}{\Large\textbf{HAW HAMBURG}}
+    \fi
+    \IfFileExists{bilder/haw_logo.png}{%
+      \includegraphics[width=5cm]{bilder/haw_logo.png}
+    }{%
+      \textcolor{white}{\Huge\textbf{HAW HAMBURG}}
+    }
+  \end{center}
+
+  \vspace{1.5cm}
+
+  % Titel
+  \begin{center}
+    \textcolor{white}{\fontsize{32}{40}\selectfont\textbf{Studierenden-}}\\[0.3cm]
+    \textcolor{white}{\fontsize{32}{40}\selectfont\textbf{initiativen}}\\[0.5cm]
+    \textcolor{white}{\Large Entdecke, was an der HAW auf dich wartet}
+  \end{center}
+
+  \vspace{4.5cm}
+
+  % Untere Info-Box
+  \begin{tcolorbox}[
+    colback=hawlightgray,
+    colframe=hawblue,
+    arc=6pt,
+    boxrule=1.5pt,
+    width=\textwidth,
+    halign=center
+  ]
+    \begin{center}
+      \large\textbf{\textcolor{hawblue}{Für wen ist diese Übersicht?}}\\[0.4cm]
+      \normalsize\textcolor{hawgray}{
+        Diese Broschüre richtet sich an alle Studierenden der HAW Hamburg –\\
+        besonders an Erstsemester.\\
+        Hier findest du Initiativen, Gruppen und Projekte, denen du beitreten kannst.
+      }
+    \end{center}
+  \end{tcolorbox}
+
+  \vfill
+
+  % Fußzeile Deckblatt
+  \begin{center}
+    \textcolor{hawgray}{\small Stand: \today \quad|\quad Hochschule für Angewandte Wissenschaften Hamburg}
+  \end{center}
+\end{titlepage}
+
+% ── EINLEITUNG ───────────────────────────────────────────────
+\section*{Willkommen bei den Initiativen der HAW}
+\addcontentsline{toc}{section}{Willkommen}
+\markboth{Willkommen}{}
+
+An der HAW Hamburg gibt es eine Vielzahl studentischer Initiativen, Clubs und Gruppen. Sie bieten dir die Möglichkeit, über den Tellerrand deines Studiums hinauszuschauen, neue Menschen kennenzulernen und praktische Erfahrungen zu sammeln.
+
+\bigskip
+\noindent\textbf{So nutzt du diese Übersicht:}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=4pt]
+  \item[\textcolor{hawblue}{\faSearch}] Stöbere durch die Initiativen und finde heraus, was dich interessiert
+  \item[\textcolor{hawblue}{\faUsers}] Jede Karte zeigt dir, für wen die Initiative geeignet ist
+  \item[\textcolor{hawblue}{\faEnvelope}] Kontaktiere die Initiative direkt über die angegebenen Infos
+  \item[\textcolor{hawblue}{\faCalendar}] Komm einfach zu einem der nächsten Treffen!
+\end{itemize}
+
+\bigskip
+\hawrule
+% ── INHALTSVERZEICHNIS ───────────────────────────────────────
+\newpage
+\thispagestyle{fancy}
+{\hypersetup{linkcolor=hawblue}
+\tableofcontents}
+\newpage
+
+
+
+% ── INITIATIVEN ──────────────────────────────────────────────
+% Neue Initiative? Einfach eine neue Zeile \input{...} hinzufügen!
+
+\section{Hochschule \& studentische Selbstverwaltung}
+\markboth{Hochschule \& studentische Selbstverwaltung}{}
+
+\initiative{fsr}
+\initiative{asta}
+\initiative{stupa}
+\initiative{sds}
+
+\section{Forschung \& wissenschaftliche Projekte}
+\markboth{Forschung \& wissenschaftliche Projekte}{}
+
+\initiative{cs4f}
+\initiative{cc4e}
+\initiative{robolab}
+\initiative{sail}
+
+\section{Technik \& Engineering Projekte}
+\markboth{Technik \& Engineering Projekte}{}
+
+\initiative{hawks_racing}
+\initiative{neues_fliegen}
+\initiative{robotter_club}
+\initiative{lan_party}
+
+\section{International \& Karriere}
+\markboth{International \& Karriere}{}
+
+\initiative{iaeste}
+\initiative{webuddy}
+\initiative{careerservice}
+
+\section{Support \& studentische Hilfe}
+\markboth{Support \& studentische Hilfe}{}
+
+\initiative{peer_to_peer}
+\initiative{mhfa}
+\initiative{bunte_haende}
+
+\section{Kultur \& Community}
+\markboth{Kultur \& Community}{}
+
+\initiative{hamburger_haie}
+\initiative{theater_ag}
+% ── WEITERE INFOS ─────────────────────────────────────────────
+\newpage
+\section*{Eigene Initiative gründen}
+\addcontentsline{toc}{section}{Eigene Initiative gründen}
+
+Du möchtest selbst eine Initiative starten? Kein Problem! Die HAW unterstützt neue studentische Projekte. Wende dich an das Studierendenparlament (StuPa) oder die Fachschaft deines Departments.
+
+\bigskip
+\begin{tcolorbox}[colback=hawlightblue!15, colframe=hawlightblue, arc=4pt]
+  \textbf{\textcolor{hawblue}{\faInfoCircle\quad Tipp:}} Diese Broschüre wird regelmäßig aktualisiert. Alle Quelldateien liegen auf GitHub – du kannst gerne Änderungen vorschlagen oder deine Initiative eintragen lassen.
+\end{tcolorbox}
+
+\end{document}
