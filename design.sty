@@ -1,0 +1,177 @@
+% ============================================================
+%  HAW Initiativen – Einheitliches Design-Paket
+%  config/design.sty
+%  Hier alle Design-Einstellungen zentral verwalten.
+% ============================================================
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{design}[2025/01/01 HAW Initiativen Design]
+
+% ── Pakete ──────────────────────────────────────────────────
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[ngerman]{babel}
+\RequirePackage{geometry}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\RequirePackage{mdframed}
+\RequirePackage{newunicodechar}
+\RequirePackage{fontawesome5}
+\RequirePackage{hyperref}
+\RequirePackage{enumitem}
+\RequirePackage{array}
+\RequirePackage{booktabs}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage{multicol}
+\RequirePackage{wrapfig}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Seitenränder ─────────────────────────────────────────────
+\geometry{
+  a4paper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm,
+  headheight=1.5cm
+}
+
+% ── HAW Farben ───────────────────────────────────────────────
+% Offizielle HAW Hamburg Farben (anpassen falls nötig)
+\definecolor{hawblue}{RGB}{0, 83, 155}       % HAW Hauptblau
+\definecolor{hawlightblue}{RGB}{0, 155, 214} % Hellblau Akzent
+\definecolor{hawgray}{RGB}{100, 100, 100}    % Grau für Text
+\definecolor{hawlightgray}{RGB}{240, 240, 240} % Hintergrundgrau
+\definecolor{hawyellow}{RGB}{255, 186, 0}    % Akzentgelb
+\definecolor{hawgreen}{RGB}{0, 150, 100}     % Akzentgrün
+
+% ── Kopf- und Fußzeile ───────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{hawblue}\leaders\hrule height \headrulewidth\hfill}}
+
+\fancyhead[L]{%
+  \textcolor{hawblue}{\textbf{\small HAW Hamburg – Studierendeninitiativen}}
+}
+\fancyhead[R]{%
+  \textcolor{hawgray}{\small \leftmark}
+}
+\fancyfoot[C]{\textcolor{hawgray}{\small \thepage}}
+
+% ── Überschriften-Stil ────────────────────────────────────────
+\titleformat{\section}
+  {\Large\bfseries\color{hawblue}}
+  {}
+  {0em}
+  {}
+  [\textcolor{hawlightblue}{\titlerule[1.5pt]}]
+
+\titleformat{\subsection}
+  {\large\bfseries\color{hawblue}}
+  {}
+  {0em}
+  {}
+
+% ── Initiativ-Karte (Hauptelement) ───────────────────────────
+\newenvironment{initiativkarte}[1]{%
+  \begin{tcolorbox}[
+    enhanced,
+    breakable,
+    title={\Large\bfseries\color{white} #1},
+    colbacktitle=hawblue,
+    colback=white,
+    coltitle=white,
+    colframe=hawblue,
+    arc=4pt,
+    boxrule=1.5pt,
+    titlerule=0pt,
+    attach boxed title to top left={yshift=-3mm, xshift=5mm},
+    boxed title style={arc=3pt, colback=hawblue},
+    top=8mm,
+    bottom=4mm
+  ]
+}{%
+  \end{tcolorbox}
+  \vspace{0.8cm}
+}
+
+% ── Info-Badge (Zielgruppe, Semester etc.) ───────────────────
+\newcommand{\badge}[2]{%
+  \begin{tcolorbox}[
+    enhanced,
+    colback=hawlightgray,
+    colframe=hawblue,
+    arc=12pt,
+    boxrule=0.8pt,
+    left=4pt, right=4pt,
+    top=2pt, bottom=2pt,
+    width=auto,
+    nobeforeafter,
+    tcbox raise base
+  ]
+  {\small\textcolor{hawblue}{\textbf{#1:}} \textcolor{hawgray}{#2}}
+  \end{tcolorbox}%
+}
+
+% ── Info-Zeile (Icon + Text) ─────────────────────────────────
+\newcommand{\infozeile}[2]{%
+  \noindent\textcolor{hawblue}{#1}\quad\textcolor{hawgray}{#2}\\[2pt]
+}
+
+% ── Trennlinie ───────────────────────────────────────────────
+\newcommand{\hawrule}{%
+  \noindent\textcolor{hawlightblue}{\rule{\linewidth}{0.8pt}}\\[4pt]
+}
+
+% ── Beschreibungs-Box ────────────────────────────────────────
+\newenvironment{beschreibung}{%
+  \begin{mdframed}[
+    linecolor=hawlightblue,
+    linewidth=1pt,
+    leftmargin=0pt,
+    rightmargin=0pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt,
+    innertopmargin=8pt,
+    innerbottommargin=8pt,
+    backgroundcolor=white
+  ]
+}{%
+  \end{mdframed}
+}
+
+% ── Tags (Interessen, Schlagwörter) ──────────────────────────
+\newcommand{\tag}[1]{%
+  \tikz[baseline=(t.base)]{
+    \node[
+      fill=hawlightblue!20,
+      draw=hawlightblue,
+      rounded corners=8pt,
+      inner sep=4pt,
+      font=\small\color{hawblue}
+    ] (t) {#1};
+  }\,%
+}
+
+% ── Jede Initiative auf eigener Seite ──
+\newcommand{\initiative}[1]{%
+  \clearpage
+\addcontentsline{toc}{subsection}{#1}
+  \input{initiativen/#1}
+}
+
+% ── Hyperlink-Stil ────────────────────────────────────────────
+\hypersetup{
+  colorlinks=true,
+  linkcolor=hawblue,
+  urlcolor=hawlightblue,
+  citecolor=hawblue
+}
+
+\endinput

@@ -24,67 +24,41 @@
 
 % ── DECKBLATT ────────────────────────────────────────────────
 \begin{titlepage}
-  \thispagestyle{empty}
+\thispagestyle{empty}
 
-  % Hintergrund-Balken oben
-  \begin{tikzpicture}[remember picture, overlay]
-    \fill[hawblue] (current page.north west)
-      rectangle ([yshift=-7cm] current page.north east);
-    \fill[hawlightblue] ([yshift=-7cm] current page.north west)
-      rectangle ([yshift=-7.4cm] current page.north east);
-  \end{tikzpicture}
+\begin{center}
 
-  \vspace*{1.2cm}
+\vspace*{1.5cm}
 
-  % HAW Logo (Datei bilder/haw_logo.png einfügen)
-  \begin{center}
-    \ifx\@empty\@empty
-      % Placeholder falls kein Logo vorhanden
-      \textcolor{white}{\Large\textbf{HAW HAMBURG}}
-    \fi
-    \IfFileExists{bilder/haw_logo.png}{%
-      \includegraphics[width=5cm]{bilder/haw_logo.png}
-    }{%
-      \textcolor{white}{\Huge\textbf{HAW HAMBURG}}
-    }
-  \end{center}
+% ── LOGO / HEADER IMAGE ─────────────────────────────
+\IfFileExists{bilder/haw.jpg}{%
+    \includegraphics[width=0.55\textwidth]{bilder/haw.jpg}
+}{%
+    \vspace{2cm}
+    {\Huge\textbf{HAW HAMBURG}}
+}
 
-  \vspace{1.5cm}
+\vspace{1.8cm}
 
-  % Titel
-  \begin{center}
-    \textcolor{white}{\fontsize{32}{40}\selectfont\textbf{Studierenden-}}\\[0.3cm]
-    \textcolor{white}{\fontsize{32}{40}\selectfont\textbf{initiativen}}\\[0.5cm]
-    \textcolor{white}{\Large Entdecke, was an der HAW auf dich wartet}
-  \end{center}
+% ── TITEL ─────────────────────────────────────────────
+{\Huge\bfseries Studierenden-}\\[0.3cm]
+{\Huge\bfseries initiativen}\\[1.2cm]
 
-  \vspace{4.5cm}
+{\Large Entdecke, was an der HAW auf dich wartet}\\[0.8cm]
 
-  % Untere Info-Box
-  \begin{tcolorbox}[
-    colback=hawlightgray,
-    colframe=hawblue,
-    arc=6pt,
-    boxrule=1.5pt,
-    width=\textwidth,
-    halign=center
-  ]
-    \begin{center}
-      \large\textbf{\textcolor{hawblue}{Für wen ist diese Übersicht?}}\\[0.4cm]
-      \normalsize\textcolor{hawgray}{
-        Diese Broschüre richtet sich an alle Studierenden der HAW Hamburg –\\
-        besonders an Erstsemester.\\
-        Hier findest du Initiativen, Gruppen und Projekte, denen du beitreten kannst.
-      }
-    \end{center}
-  \end{tcolorbox}
+{\large Stand: 23. Juni 2026}
 
-  \vfill
+\vspace{2.5cm}
 
-  % Fußzeile Deckblatt
-  \begin{center}
-    \textcolor{hawgray}{\small Stand: \today \quad|\quad Hochschule für Angewandte Wissenschaften Hamburg}
-  \end{center}
+% ── INFO BOX ─────────────────────────────────────────
+
+
+\vfill
+
+% ── FOOTER ───────────────────────────────────────────
+{\small Hochschule für Angewandte Wissenschaften Hamburg}
+
+\end{center}
 \end{titlepage}
 
 % ── EINLEITUNG ───────────────────────────────────────────────
@@ -118,59 +92,53 @@ An der HAW Hamburg gibt es eine Vielzahl studentischer Initiativen, Clubs und Gr
 % ── INITIATIVEN ──────────────────────────────────────────────
 % Neue Initiative? Einfach eine neue Zeile \input{...} hinzufügen!
 
-\section{Hochschule \& studentische Selbstverwaltung}
 \markboth{Hochschule \& studentische Selbstverwaltung}{}
+\addcontentsline{toc}{section}{Hochschule \& studentische Selbstverwaltung}
 
-\initiative{fsr}
-\initiative{asta}
-\initiative{stupa}
-\initiative{sds}
+\initiative{FSR}
+\initiative{ASTA}
+\initiative{Stupa}
+\initiative{SDS}
 
-\section{Forschung \& wissenschaftliche Projekte}
 \markboth{Forschung \& wissenschaftliche Projekte}{}
+\addcontentsline{toc}{section}{Forschung \& wissenschaftliche Projekte}
 
-\initiative{cs4f}
-\initiative{cc4e}
-\initiative{robolab}
-\initiative{sail}
+\initiative{CS4F}
+\initiative{CC4E}
+\initiative{Robolab}
+\initiative{Sail}
 
-\section{Technik \& Engineering Projekte}
 \markboth{Technik \& Engineering Projekte}{}
+\addcontentsline{toc}{section}{Technik \& Engineering Projekte}
 
-\initiative{hawks_racing}
-\initiative{neues_fliegen}
-\initiative{robotter_club}
-\initiative{lan_party}
 
-\section{International \& Karriere}
+\initiative{Hawks\_Racing}
+\initiative{Neues\_Fliegen}
+\initiative{Robotter\_Club}
+
 \markboth{International \& Karriere}{}
+\addcontentsline{toc}{section}{International \& Karriere}
 
-\initiative{iaeste}
-\initiative{webuddy}
-\initiative{careerservice}
 
-\section{Support \& studentische Hilfe}
+\initiative{IAESTE}
+\initiative{WeBuddy}
+\initiative{Careerservice}
+
 \markboth{Support \& studentische Hilfe}{}
+\addcontentsline{toc}{section}{Support \& studentische Hilfe}
 
-\initiative{peer_to_peer}
-\initiative{mhfa}
-\initiative{bunte_haende}
 
-\section{Kultur \& Community}
+\initiative{Peer\_to\_Peer}
+\initiative{MHFA}
+\initiative{Bunte\_Haende}
+
 \markboth{Kultur \& Community}{}
+\addcontentsline{toc}{section}{Kultur \& Community}
 
-\initiative{hamburger_haie}
-\initiative{theater_ag}
+
+\initiative{Hamburger\_Haie}
+\initiative{Theater\_AG}
 % ── WEITERE INFOS ─────────────────────────────────────────────
-\newpage
-\section*{Eigene Initiative gründen}
-\addcontentsline{toc}{section}{Eigene Initiative gründen}
 
-Du möchtest selbst eine Initiative starten? Kein Problem! Die HAW unterstützt neue studentische Projekte. Wende dich an das Studierendenparlament (StuPa) oder die Fachschaft deines Departments.
-
-\bigskip
-\begin{tcolorbox}[colback=hawlightblue!15, colframe=hawlightblue, arc=4pt]
-  \textbf{\textcolor{hawblue}{\faInfoCircle\quad Tipp:}} Diese Broschüre wird regelmäßig aktualisiert. Alle Quelldateien liegen auf GitHub – du kannst gerne Änderungen vorschlagen oder deine Initiative eintragen lassen.
-\end{tcolorbox}
 
 \end{document}
