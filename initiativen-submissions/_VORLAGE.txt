@@ -1,0 +1,10 @@
+name: AI Club
+kurz: Wir bauen KI-Projekte
+beschreibung: Wir treffen uns jede Woche und bauen ML Projekte
+zielgruppe: Alle Informatik-Studierenden
+semester: ab 1. Semester
+studiengang: Informatik, Data Science
+kontakt: ai@haw-hamburg.de
+webseite: haw.de
+treffen: Dienstags 18 Uhr Raum 3.12
+ort: Berliner Tor 11
