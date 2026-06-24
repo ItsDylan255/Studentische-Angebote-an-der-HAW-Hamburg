@@ -9,9 +9,6 @@ Dieses Repository enthält eine strukturierte, LaTeX-basierte Übersicht aller S
 
 [![Latest PDF](https://img.shields.io/badge/Download-PDF-blue?style=for-the-badge\&logo=adobeacrobatreader)](./Studierendeninitiativen.pdf)
 
-🔄 Die PDF wird automatisch bei jedem Push aktualisiert (über GitHub Actions).
-Das bedeutet: Immer wenn sich `main.tex`, eine Initiative oder das Design ändert, wird die aktuelle Version neu gebaut und hier im Repository ersetzt.
-
 ---
 
 ## 📁 Struktur
@@ -40,14 +37,32 @@ haw-initiativen/
 ```
 
 ---
+## 📨 Initiative einreichen (ohne LaTeX-Kenntnisse)
 
-## 🚀 Neue Initiative hinzufügen
+Du möchtest deine Initiative in diese Übersicht aufnehmen, kannst aber kein LaTeX?
 
-1. Kopiere eine bestehende Datei aus `initiativen/`, z. B.:
+Kein Problem 👍
 
-   ```
-   cp initiativen/coding_club.tex initiativen/meine_initiative.tex
-   ```
+Dafür gibt es den Ordner:
+
+`initiativen-submissions/`
+
+---
+
+## 📄 So funktioniert es:
+
+- Lade dir eine der Vorlagen aus dem Ordner `initiativen-submissions/` herunter  
+- Öffne die Datei (ein einfacher Texteditor reicht, z. B. Notepad, VS Code, etc.)  
+- Ersetze die Inhalte mit euren Informationen  
+- Du musst dich nicht strikt an die Struktur halten  
+- Inhalte können auch angepasst, erweitert oder vereinfacht werden  
+- Benenne die Datei passend um (z. B. `ai_club.txt`)  
+- Lade die Datei wieder ins Repository hoch
+- Die wird später in manuel dann hinzugefügt
+  
+## 🚀 Neue Initiative hinzufügen (LaTeX-Kenntnisse)
+
+1. Kopiere eine bestehende Datei aus ``initiativen/_VORLAGE.tex`, z. B.:
 
 2. Passe die Felder in der neuen Datei an (Name, Beschreibung, Bild, Zielgruppe etc.)
 
@@ -57,51 +72,64 @@ haw-initiativen/
    \input{initiativen/meine_initiative}
    ```
 
-4. Lege ein Bild unter `bilder/meine_initiative.jpg` ab (empfohlen: 1200×600 px)
+4. Falls ein Bild vorhanden lege das Bild unter `bilder/meine_initiative.jpg` ab (empfohlen: 1200×600 px)
 
 ---
 
-## 🛠️ Kompilieren
+## 🛠️ PDF kompilieren (Erstellen der Ausgabe)
 
-Benötigt wird eine LaTeX-Distribution (z. B. [TeX Live](https://tug.org/texlive/) oder [MiKTeX](https://miktex.org/)).
+Du brauchst eine LaTeX-Distribution wie TeX Live oder MiKTeX.
 
-```bash
-pdflatex main.tex
-pdflatex main.tex   # Zweimal für Inhaltsverzeichnis
-```
+---
 
-Oder mit `latexmk`:
+## 💻 Lokale Variante (auf deinem PC)
+
+Einfachste Variante:
 
 ```bash
 latexmk -pdf main.tex
 ```
 
-Das fertige PDF heißt dann `main.pdf`.
+Oder klassisch:
+
+```bash
+pdflatex main.tex
+pdflatex main.tex
+```
+
+## 🤖 Automatische PDF-Erstellung (GitHub Actions)
+
+Dieses Projekt ist so eingerichtet, dass du LaTeX nicht lokal kompilieren musst.
+
+👉 Sobald du etwas änderst in:
+
+- `main.tex`
+- dem Ordner `initiativen/`
+- dem Ordner `config/` (Design)
+
+wird automatisch eine neue PDF-Version erstellt.
 
 ---
+
+## 🔄 Ablauf:
+
+- Du machst einen Push auf GitHub  
+- GitHub Actions startet automatisch einen Build  
+- Die PDF wird neu generiert (Dauer ca. 5–6 Minuten)  
+- Die fertige Datei wird automatisch ins Repository hochgeladen  
+
+---
+
+## 📄 Ergebnis:
+
+Du findest danach immer die aktuelle Version hier im Repo:
+
+**Studierendeninitiativen.pdf**
 
 ## 🎨 Design anpassen
 
 Alle Design-Einstellungen (Farben, Schriften, Abstände) befinden sich in `config/design.sty`.
-Dort können z. B. die HAW-Farben oder das Logo-Placement geändert werden.
-
----
-
-## 📋 Felder pro Initiative
-
-Jede Initiative-Datei enthält folgende Informationen:
-
-| Feld                      | Beschreibung                                  |
-| ------------------------- | --------------------------------------------- |
-| `\initiativeName`         | Name der Initiative                           |
-| `\initiativeKurz`         | Kurzbeschreibung (1–2 Sätze)                  |
-| `\initiativeBeschreibung` | Ausführliche Beschreibung                     |
-| `\initiativeBild`         | Pfad zum Bild (relativ zu `bilder/`)          |
-| `\initiativeZielgruppe`   | Für wen ist die Initiative geeignet?          |
-| `\initiativeSemester`     | Empfohlenes Semester (z. B. „ab 1. Semester") |
-| `\initiativeStudiengang`  | Relevante Studiengänge                        |
-| `\initiativeKontakt`      | E-Mail oder Website                           |
-| `\initiativeTreffen`      | Wann/Wo treffen sie sich?                     |
+Dort können z. B. die Farben oder das Logo-Placement geändert werden.
 
 ---
 
