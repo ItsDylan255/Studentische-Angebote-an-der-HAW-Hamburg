@@ -47,8 +47,6 @@ Dafür gibt es den Ordner:
 
 `initiativen-submissions/`
 
----
-
 ## 📄 So funktioniert es:
 
 - Lade dir eine der Vorlagen aus dem Ordner `initiativen-submissions/` herunter  
@@ -59,7 +57,9 @@ Dafür gibt es den Ordner:
 - Benenne die Datei passend um (z. B. `ai_club.txt`)  
 - Lade die Datei wieder ins Repository hoch
 - Die wird später in manuel dann hinzugefügt
-  
+
+---
+
 ## 🚀 Neue Initiative hinzufügen (LaTeX-Kenntnisse)
 
 1. Kopiere eine bestehende Datei aus ``initiativen/_VORLAGE.tex`, z. B.:
@@ -80,8 +80,6 @@ Dafür gibt es den Ordner:
 
 Du brauchst eine LaTeX-Distribution wie TeX Live oder MiKTeX.
 
----
-
 ## 💻 Lokale Variante (auf deinem PC)
 
 Einfachste Variante:
@@ -97,6 +95,8 @@ pdflatex main.tex
 pdflatex main.tex
 ```
 
+---
+
 ## 🤖 Automatische PDF-Erstellung (GitHub Actions)
 
 Dieses Projekt ist so eingerichtet, dass du LaTeX nicht lokal kompilieren musst.
@@ -109,16 +109,12 @@ Dieses Projekt ist so eingerichtet, dass du LaTeX nicht lokal kompilieren musst.
 
 wird automatisch eine neue PDF-Version erstellt.
 
----
-
 ## 🔄 Ablauf:
 
 - Du machst einen Push auf GitHub  
 - GitHub Actions startet automatisch einen Build  
 - Die PDF wird neu generiert (Dauer ca. 5–6 Minuten)  
 - Die fertige Datei wird automatisch ins Repository hochgeladen  
-
----
 
 ## 📄 Ergebnis:
 
