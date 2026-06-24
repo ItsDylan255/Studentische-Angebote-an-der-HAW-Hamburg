@@ -5,7 +5,7 @@ Dieses Repository enthält eine strukturierte, LaTeX-basierte Übersicht aller S
 
 ## 📄 Aktuelle Version
 
-👉 Hier kannst du die automatisch generierte PDF herunterladen:
+👉 Hier kannst du die Aktuellste Version herunterladen:
 
 [![Latest PDF](https://img.shields.io/badge/Download-PDF-blue?style=for-the-badge\&logo=adobeacrobatreader)](./Studierendeninitiativen.pdf)
 
