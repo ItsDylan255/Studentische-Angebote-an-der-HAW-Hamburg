@@ -17,6 +17,7 @@ Dieses Repository enthält eine strukturierte, LaTeX-basierte Übersicht aller S
 haw-initiativen/
 │
 ├── main.tex                    # Haupt-Dokument (kompiliert alles zusammen)
+│
 ├── config/
 │   └── design.sty              # Einheitliches Design-Paket (Farben, Schriften, Layout)
 │
@@ -25,6 +26,9 @@ haw-initiativen/
 │   ├── nachhaltigkeitsgruppe.tex
 │   ├── hochschulradio.tex
 │   └── ...                     # Weitere Initiativen hier hinzufügen
+│
+├── initiativen-submissions/    # 📨 Einreichungen ohne LaTeX-Kenntnisse
+│   └── beispiel.txt            # Beispiel-Datei (optional)
 │
 ├── bilder/
 │   ├── haw_logo.png            # HAW-Logo (bitte selbst hinzufügen)
