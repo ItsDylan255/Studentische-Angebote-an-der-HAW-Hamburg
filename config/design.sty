@@ -162,7 +162,8 @@
 % ── Jede Initiative auf eigener Seite ──
 \newcommand{\initiative}[1]{%
   \clearpage
-\addcontentsline{toc}{subsection}{#1}
+  \phantomsection
+  \addcontentsline{toc}{subsection}{#1}
   \input{initiativen/#1}
 }
 
